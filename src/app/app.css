@@ -26,6 +26,12 @@
   color: #6a5641;
 }
 
+.form-subtitle {
+  margin: 6px 0 10px;
+  color: #6a5641;
+  font-weight: 600;
+}
+
 .form-card {
   background: #fff;
   border: 1px solid #e1d8cc;
@@ -98,8 +104,9 @@
 
 .product-card img {
   width: 100%;
-  height: 140px;
-  object-fit: cover;
+  height: 180px;
+  object-fit: contain;
+  object-position: center;
   border-radius: 8px;
   background: #efe6d9;
 }

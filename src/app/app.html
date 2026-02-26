@@ -1,7 +1,6 @@
 <main class="page">
   <header class="header">
-    <h1>Furniture Shop</h1>
-    <p>Add products to your categories and view them instantly.</p>
+    <h1>Sarvadhnya Steel Furniture</h1>
   </header>
 
   @for (category of categories; track category) {
@@ -26,6 +25,7 @@
     </section>
   }
 
+  <p class="form-subtitle">Add product to list</p>
   <section class="form-card">
     <h2>Add Product</h2>
     <form class="product-form" (ngSubmit)="addProduct()">
