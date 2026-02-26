@@ -114,6 +114,22 @@
   font-size: 0.9rem;
 }
 
+.remove-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #cdb9a1;
+  border-radius: 8px;
+  background: #fff6ee;
+  color: #5a3e24;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background: #f9e8d8;
+}
+
 @media (max-width: 700px) {
   .product-form {
     grid-template-columns: 1fr;

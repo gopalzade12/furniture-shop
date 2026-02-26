@@ -4,6 +4,28 @@
     <p>Add products to your categories and view them instantly.</p>
   </header>
 
+  @for (category of categories; track category) {
+    <section class="category-section">
+      <h2>{{ category }}</h2>
+
+      @if (getProductsByCategory(category).length === 0) {
+        <p class="empty">No products in this category yet.</p>
+      } @else {
+        <div class="product-grid">
+          @for (product of getProductsByCategory(category); track product.id) {
+            <article class="product-card">
+              <img [src]="product.image" [alt]="product.name" />
+              <h3>{{ product.name }}</h3>
+              <p><strong>Price:</strong> ${{ product.price }}</p>
+              <p><strong>Color:</strong> {{ product.color }}</p>
+              <button type="button" class="remove-btn" (click)="removeProduct(product.id)">Remove</button>
+            </article>
+          }
+        </div>
+      }
+    </section>
+  }
+
   <section class="form-card">
     <h2>Add Product</h2>
     <form class="product-form" (ngSubmit)="addProduct()">
@@ -44,25 +66,4 @@
       <button type="submit">Add Product</button>
     </form>
   </section>
-
-  @for (category of categories; track category) {
-    <section class="category-section">
-      <h2>{{ category }}</h2>
-
-      @if (getProductsByCategory(category).length === 0) {
-        <p class="empty">No products in this category yet.</p>
-      } @else {
-        <div class="product-grid">
-          @for (product of getProductsByCategory(category); track product.id) {
-            <article class="product-card">
-              <img [src]="product.image" [alt]="product.name" />
-              <h3>{{ product.name }}</h3>
-              <p><strong>Price:</strong> ${{ product.price }}</p>
-              <p><strong>Color:</strong> {{ product.color }}</p>
-            </article>
-          }
-        </div>
-      }
-    </section>
-  }
 </main>

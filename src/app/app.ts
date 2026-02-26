@@ -70,6 +70,12 @@ export class App {
     this.resetForm();
   }
 
+  removeProduct(productId: number): void {
+    const updatedProducts = this.products().filter((product) => product.id !== productId);
+    this.products.set(updatedProducts);
+    this.saveProducts(updatedProducts);
+  }
+
   async onImageFileSelected(event: Event): Promise<void> {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
