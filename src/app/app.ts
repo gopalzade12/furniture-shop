@@ -11,7 +11,6 @@ interface Product {
   image: string;
   category: ProductCategory;
 }
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
@@ -33,7 +32,7 @@ export class App {
       price: 12000,
       finalPrice: 11000,
       color: 'Red',
-      image: '/images/almirah/2.5red.jpeg',
+      image: 'images/almirah/2.5red.jpeg',
       category: 'Almirah'
     },
     {
@@ -42,7 +41,7 @@ export class App {
       price: 9000,
       finalPrice: 8000,
       color: 'Green',
-      image: '/images/almirah/2.green.jpeg',
+      image: 'images/almirah/2.green.jpeg',
       category: 'Almirah'
     },
     {
@@ -51,7 +50,7 @@ export class App {
       price: 13000,
       finalPrice: 12000,
       color: 'Godrej logo',
-      image: '/images/almirah/3.1black.jpeg',
+      image: 'images/almirah/3.1black.jpeg',
       category: 'Almirah'
     },
     {
@@ -60,7 +59,7 @@ export class App {
       price: 7500,
       finalPrice: 6500,
       color: 'All Colors',
-      image: '/images/almirah/2.red.jpeg',
+      image: 'images/almirah/2.red.jpeg',
       category: 'Almirah'
     },
     {
@@ -69,7 +68,7 @@ export class App {
       price: 8500,
       finalPrice: 7500,
       color: 'Godrej logo',
-      image: '/images/almirah/2godrej.jpeg',
+      image: 'images/almirah/2godrej.jpeg',
       category: 'Almirah'
     },
     {
@@ -78,7 +77,7 @@ export class App {
       price: 12000,
       finalPrice: 11000,
       color: 'Black',
-      image: '/images/almirah/3design.jpeg',
+      image: 'images/almirah/3design.jpeg',
       category: 'Almirah'
     },
     {
@@ -87,7 +86,7 @@ export class App {
       price: 9000,
       finalPrice: 8000,
       color: 'Pink',
-      image: '/images/almirah/2-2red.jpeg',
+      image: 'images/almirah/2-2red.jpeg',
       category: 'Almirah'
     },
     {
@@ -96,7 +95,7 @@ export class App {
       price: 13000,
       finalPrice: 12000,
       color: 'Blue',
-      image: '/images/almirah/italic.jpeg',
+      image: 'images/almirah/italic.jpeg',
       category: 'Almirah'
     },
     {
@@ -105,7 +104,7 @@ export class App {
       price: 13000,
       finalPrice: 12000,
       color: 'mehroon',
-      image: '/images/almirah/lining.jpeg',
+      image: 'images/almirah/lining.jpeg',
       category: 'Almirah'
     },
     {
@@ -114,7 +113,7 @@ export class App {
       price: 12000,
       finalPrice: 11000,
       color: 'Black-white',
-      image: '/images/almirah/3.1black.jpeg',
+      image: 'images/almirah/3.1black.jpeg',
       category: 'Almirah'
     },
     {
@@ -123,7 +122,7 @@ export class App {
       price: 12000,
       finalPrice: 11000,
       color: 'Pink',
-      image: '/images/almirah/2.2red.jpeg',
+      image: 'images/almirah/2.2red.jpeg',
       category: 'Almirah'
     },
     {
@@ -132,7 +131,7 @@ export class App {
       price: 8500,
       finalPrice: 7500,
       color: 'Black',
-      image: '/images/almirah/wooden-black.jpeg',
+      image: 'images/almirah/wooden-black.jpeg',
       category: 'Almirah'
     },
     {
@@ -141,7 +140,7 @@ export class App {
       price: 8500,
       finalPrice: 7500,
       color: 'White',
-      image: '/images/almirah/Wooden-red.jpeg',
+      image: 'images/almirah/Wooden-red.jpeg',
       category: 'Almirah'
     },
     {
@@ -150,7 +149,7 @@ export class App {
       price: 3300,
       finalPrice: 2800,
       color: 'Black',
-      image: '/images/almirah/almirah(small).jpeg',
+      image: 'images/almirah/almirah(small).jpeg',
       category: 'Almirah'
     },
     {
@@ -159,7 +158,7 @@ export class App {
       price: 5500,
       finalPrice: 5000,
       color: 'Black',
-      image: '/images/almirah/almirah(medium).jpeg',
+      image: 'images/almirah/almirah(medium).jpeg',
       category: 'Almirah'
     },
     {
@@ -168,7 +167,7 @@ export class App {
       price: 16000,
       finalPrice: 15000,
       color: 'Standard',
-      image: '/images/beds/Sliding (6-6).jpeg',
+      image: 'images/beds/Sliding (6-6).jpeg',
       category: 'Beds'
     },
     {
@@ -177,7 +176,7 @@ export class App {
       price: 12500,
       finalPrice: 11500,
       color: 'Standard',
-      image: '/images/beds/Sliding (6-6).jpeg',
+      image: 'images/beds/Sliding (6-6).jpeg',
       category: 'Beds'
     },
     {
@@ -186,7 +185,7 @@ export class App {
       price: 10000,
       finalPrice: 9000,
       color: 'Standard',
-      image: '/images/beds/Box bed.jpeg',
+      image: 'images/beds/Box bed.jpeg',
       category: 'Beds'
     },
     {
@@ -195,7 +194,7 @@ export class App {
       price: 9000,
       finalPrice: 8000,
       color: 'Standard',
-      image: '/images/beds/Box bed.jpeg',
+      image: 'images/beds/Box bed.jpeg',
       category: 'Beds'
     },
     {
@@ -204,7 +203,7 @@ export class App {
       price: 10000,
       finalPrice: 9000,
       color: 'Standard',
-      image: '/images/beds/Sofa with box.jpeg',
+      image: 'images/beds/Sofa with box.jpeg',
       category: 'Beds'
     },
     {
@@ -213,7 +212,7 @@ export class App {
       price: 7000,
       finalPrice: 6000,
       color: 'Standard',
-      image: '/images/beds/sofa.jpeg',
+      image: 'images/beds/sofa.jpeg',
       category: 'Beds'
     },
     {
@@ -222,7 +221,7 @@ export class App {
       price: 4000,
       finalPrice: 3600,
       color: 'Standard',
-      image: '/images/beds/Simple bed 4-6.jpeg',
+      image: 'images/beds/Simple bed 4-6.jpeg',
       category: 'Beds'
     },
     {
@@ -231,7 +230,7 @@ export class App {
       price: 3200,
       finalPrice: 3000,
       color: 'Standard',
-      image: '/images/beds/Simple bed.jpeg',
+      image: 'images/beds/Simple bed.jpeg',
       category: 'Beds'
     },
     {
@@ -240,7 +239,7 @@ export class App {
       price: 3200,
       finalPrice: 3000,
       color: 'Standard',
-      image: '/images/beds/middle folding.jpeg',
+      image: 'images/beds/middle folding.jpeg',
       category: 'Beds'
     },
     {
@@ -249,7 +248,7 @@ export class App {
       price: 4700,
       finalPrice: 3700,
       color: 'Standard',
-      image: '/images/beds/Folding patti 3.jpeg',
+      image: 'images/beds/Folding patti 3.jpeg',
       category: 'Beds'
     },
     {
@@ -258,7 +257,7 @@ export class App {
       price: 4200,
       finalPrice: 3200,
       color: 'Standard',
-      image: '/images/beds/Folding patti 3.jpeg',
+      image: 'images/beds/Folding patti 3.jpeg',
       category: 'Beds'
     },
     {
@@ -267,7 +266,7 @@ export class App {
       price: 2000,
       finalPrice: 1500,
       color: 'Standard',
-      image: '/images/beds/Folding (design).jpeg',
+      image: 'images/beds/Folding (design).jpeg',
       category: 'Beds'
     },
     {
@@ -276,7 +275,7 @@ export class App {
       price: 1400,
       finalPrice: 1200,
       color: 'Standard',
-      image: '/images/beds/khatiya.jpeg',
+      image: 'images/beds/khatiya.jpeg',
       category: 'Beds'
     },
     {
@@ -285,7 +284,7 @@ export class App {
       price: 1300,
       finalPrice: 1100,
       color: 'Standard',
-      image: '/images/beds/khatiya.jpeg',
+      image: 'images/beds/khatiya.jpeg',
       category: 'Beds'
     },
     {
@@ -294,7 +293,7 @@ export class App {
       price: 4000,
       finalPrice: 3800,
       color: 'Standard',
-      image: '/images/beds/Plywood legs folding.jpeg',
+      image: 'images/beds/Plywood legs folding.jpeg',
       category: 'Beds'
     },
     {
@@ -303,7 +302,7 @@ export class App {
       price: 3700,
       finalPrice: 3500,
       color: 'Standard',
-      image: '/images/beds/Plywood legs folding.jpeg',
+      image: 'images/beds/Plywood legs folding.jpeg',
       category: 'Beds'
     },
     {
@@ -312,7 +311,7 @@ export class App {
       price: 3500,
       finalPrice: 3200,
       color: 'Standard',
-      image: '/images/beds/Plywood legs folding.jpeg',
+      image: 'images/beds/Plywood legs folding.jpeg',
       category: 'Beds'
     },
     {
@@ -321,7 +320,7 @@ export class App {
       price: 4800,
       finalPrice: 4500,
       color: 'Standard',
-      image: '/images/tables/Computer (large).jpeg',
+      image: 'images/tables/Computer (large).jpeg',
       category: 'Tables'
     },
     {
@@ -330,7 +329,7 @@ export class App {
       price: 5200,
       finalPrice: 4800,
       color: 'Standard',
-      image: '/images/tables/Double drawer.jpeg',
+      image: 'images/tables/Double drawer.jpeg',
       category: 'Tables'
     },
     {
@@ -339,7 +338,7 @@ export class App {
       price: 3800,
       finalPrice: 3500,
       color: 'Standard',
-      image: '/images/tables/Single drawer.jpeg',
+      image: 'images/tables/Single drawer.jpeg',
       category: 'Tables'
     },
     {
@@ -348,7 +347,7 @@ export class App {
       price: 4500,
       finalPrice: 4000,
       color: 'Standard',
-      image: '/images/tables/Computer small.jpeg',
+      image: 'images/tables/Computer small.jpeg',
       category: 'Tables'
     },
     {
@@ -357,7 +356,7 @@ export class App {
       price: 2800,
       finalPrice: 2500,
       color: 'Standard',
-      image: '/images/tables/single counter.jpeg',
+      image: 'images/tables/single counter.jpeg',
       category: 'Tables'
     },
     {
@@ -366,7 +365,7 @@ export class App {
       price: 1000,
       finalPrice: 800,
       color: 'Standard',
-      image: '/images/tables/Small Table with middle angle.jpeg',
+      image: 'images/tables/Small Table with middle angle.jpeg',
       category: 'Tables'
     },
     {
@@ -375,7 +374,7 @@ export class App {
       price: 1300,
       finalPrice: 1200,
       color: 'Standard',
-      image: '/images/tables/Without drawer (wooden).jpeg',
+      image: 'images/tables/Without drawer (wooden).jpeg',
       category: 'Tables'
     },
     {
@@ -384,7 +383,7 @@ export class App {
       price: 1200,
       finalPrice: 1100,
       color: 'Standard',
-      image: '/images/tables/Without drawer (wooden).jpeg',
+      image: 'images/tables/Without drawer (wooden).jpeg',
       category: 'Tables'
     },
     {
@@ -393,7 +392,7 @@ export class App {
       price: 2100,
       finalPrice: 2000,
       color: 'Black',
-      image: '/images/tables/Without drawer (wooden).jpeg',
+      image: 'images/tables/Without drawer (wooden).jpeg',
       category: 'Custom Product'
     },
     {
@@ -402,7 +401,7 @@ export class App {
       price: 1600,
       finalPrice: 1500,
       color: 'White',
-      image: '/images/tables/Without drawer (wooden).jpeg',
+      image: 'images/tables/Without drawer (wooden).jpeg',
       category: 'Custom Product'
     },
     {
@@ -411,7 +410,7 @@ export class App {
       price: 1300,
       finalPrice: 1200,
       color: 'White',
-      image: '/images/tables/Without drawer (wooden).jpeg',
+      image: 'images/tables/Without drawer (wooden).jpeg',
       category: 'Custom Product'
     },
     {
@@ -420,7 +419,7 @@ export class App {
       price: 6500,
       finalPrice: 6000,
       color: 'Standard',
-      image: '/images/tables/Garden Zula.jpeg',
+      image: 'images/tables/Garden Zula.jpeg',
       category: 'Custom Product'
     },
     {
@@ -429,7 +428,7 @@ export class App {
       price: 3500,
       finalPrice: 3000,
       color: 'wooden',
-      image: '/images/dressing/dressinh_home.jpeg',
+      image: 'images/dressing/dressinh_home.jpeg',
       category: 'Dressing'
     },
     {
@@ -438,7 +437,7 @@ export class App {
       price: 3000,
       finalPrice: 2500,
       color: 'wooden',
-      image: '/images/dressing/dre_wooden.jpeg',
+      image: 'images/dressing/dre_wooden.jpeg',
       category: 'Dressing'
     },
     {
@@ -447,7 +446,7 @@ export class App {
       price: 4000,
       finalPrice: 3500,
       color: 'Black',
-      image: '/images/dressing/Dre_black2.jpeg',
+      image: 'images/dressing/Dre_black2.jpeg',
       category: 'Dressing'
     },
     {
@@ -456,7 +455,7 @@ export class App {
       price: 5500,
       finalPrice: 5000,
       color: 'Black',
-      image: '/images/dressing/dres_big.jpeg',
+      image: 'images/dressing/dres_big.jpeg',
       category: 'Dressing'
     },
     {
@@ -465,7 +464,7 @@ export class App {
       price: 1800,
       finalPrice: 1500,
       color: 'Black',
-      image: '/images/dressing/Small Simple dressing.jpeg',
+      image: 'images/dressing/Small Simple dressing.jpeg',
       category: 'Dressing'
     },
   ]);
@@ -474,3 +473,4 @@ export class App {
     return this.products().filter((product) => product.category === category);
   }
 }
+
