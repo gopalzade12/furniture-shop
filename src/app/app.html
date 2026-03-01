@@ -1,6 +1,9 @@
 <main class="page">
   <header class="header">
-    <h1>Sarvadhnya Steel Furniture</h1>
+    <div class="brand-logo" aria-label="Sarvadhnya Steel Furniture logo">
+      <span class="brand-mark">SSF</span>
+      <h1>Sarvadhnya Steel Furniture</h1>
+    </div>
   </header>
 
   @for (category of categories; track category) {
@@ -15,55 +18,13 @@
             <article class="product-card">
               <img [src]="product.image" [alt]="product.name" />
               <h3>{{ product.name }}</h3>
-              <p><strong>Price:</strong> ${{ product.price }}</p>
               <p><strong>Color:</strong> {{ product.color }}</p>
-              <button type="button" class="remove-btn" (click)="removeProduct(product.id)">Remove</button>
+              <p><strong>Price:</strong> &#8377;{{ product.price }}</p>
+              <p><strong>Final Price:</strong> &#8377;{{ product.finalPrice }}</p>
             </article>
           }
         </div>
       }
     </section>
   }
-
-  <p class="form-subtitle">Add product to list</p>
-  <section class="form-card">
-    <h2>Add Product</h2>
-    <form class="product-form" (ngSubmit)="addProduct()">
-      <label>
-        Product Name
-        <input type="text" name="name" [(ngModel)]="form.name" required />
-      </label>
-
-      <label>
-        Price
-        <input type="number" name="price" [(ngModel)]="form.price" min="1" required />
-      </label>
-
-      <label>
-        Color
-        <input type="text" name="color" [(ngModel)]="form.color" required />
-      </label>
-
-      <label>
-        Category
-        <select name="category" [(ngModel)]="form.category" required>
-          @for (category of categories; track category) {
-            <option [value]="category">{{ category }}</option>
-          }
-        </select>
-      </label>
-
-      <label>
-        Image URL (optional)
-        <input type="text" name="imageUrl" [(ngModel)]="form.imageUrl" placeholder="https://..." />
-      </label>
-
-      <label>
-        Or Upload Image (optional)
-        <input type="file" accept="image/*" (change)="onImageFileSelected($event)" />
-      </label>
-
-      <button type="submit">Add Product</button>
-    </form>
-  </section>
 </main>
