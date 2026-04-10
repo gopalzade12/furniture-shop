@@ -18,7 +18,7 @@ interface Product {
   styleUrl: './app.css'
 })
 export class App {
-  readonly isOwner = environment.isOwner;
+  readonly isOwner = environment.isOwner || this.isOwnerPath();
   readonly categories: readonly ProductCategory[] = [
     'Almirah',
     'Tables',
@@ -582,6 +582,14 @@ export class App {
 
   getProductsByCategory(category: ProductCategory): Product[] {
     return this.products().filter((product) => product.category === category);
+  }
+
+  private isOwnerPath(): boolean {
+    if (typeof window === 'undefined') {
+      return false;
+    }
+    const segments = window.location.pathname.split('/').filter(Boolean);
+    return segments.includes('2166') || segments.includes('owner');
   }
 }
 
