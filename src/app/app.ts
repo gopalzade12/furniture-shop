@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { environment } from '../environments/environment';
 
 type ProductCategory = 'Almirah' | 'Tables' | 'Beds' | 'Dressing' | 'Custom Product';
 
@@ -17,6 +18,7 @@ interface Product {
   styleUrl: './app.css'
 })
 export class App {
+  readonly isOwner = environment.isOwner;
   readonly categories: readonly ProductCategory[] = [
     'Almirah',
     'Tables',
@@ -24,6 +26,17 @@ export class App {
     'Dressing',
     'Custom Product'
   ];
+
+  readonly selectedCategory = signal<ProductCategory | null>(null);
+  readonly editingProductId = signal<number | null>(null);
+  readonly editDraft = signal<Omit<Product, 'id'>>({
+    name: '',
+    price: 0,
+    finalPrice: 0,
+    color: '',
+    image: '',
+    category: 'Almirah'
+  });
 
   readonly products = signal<Product[]>([
     {
@@ -468,6 +481,104 @@ export class App {
       category: 'Dressing'
     },
   ]);
+
+  selectCategory(category: ProductCategory): void {
+    this.selectedCategory.set(category);
+  }
+
+  clearCategory(): void {
+    this.selectedCategory.set(null);
+  }
+
+  startEdit(product: Product): void {
+    if (!this.isOwner) {
+      return;
+    }
+    this.editingProductId.set(product.id);
+    this.editDraft.set({
+      name: product.name,
+      price: product.price,
+      finalPrice: product.finalPrice,
+      color: product.color,
+      image: product.image,
+      category: product.category
+    });
+  }
+
+  cancelEdit(): void {
+    this.editingProductId.set(null);
+  }
+
+  addProduct(): void {
+    if (!this.isOwner) {
+      return;
+    }
+    const items = this.products();
+    const nextId = items.length ? Math.max(...items.map((item) => item.id)) + 1 : 1;
+    const category = this.selectedCategory() ?? 'Almirah';
+    const newProduct: Product = {
+      id: nextId,
+      name: 'New Product',
+      price: 0,
+      finalPrice: 0,
+      color: 'Standard',
+      image: '',
+      category
+    };
+
+    this.products.update((list) => [newProduct, ...list]);
+    this.startEdit(newProduct);
+  }
+
+  saveEdit(productId: number): void {
+    if (!this.isOwner) {
+      return;
+    }
+    const draft = this.editDraft();
+    this.products.update((items) =>
+      items.map((item) =>
+        item.id === productId
+          ? {
+              ...item,
+              name: draft.name.trim() || item.name,
+              price: Number(draft.price) || 0,
+              finalPrice: Number(draft.finalPrice) || 0,
+              color: draft.color.trim() || item.color,
+              image: draft.image.trim() || item.image,
+              category: draft.category
+            }
+          : item
+      )
+    );
+    this.editingProductId.set(null);
+  }
+
+  removeProduct(productId: number): void {
+    if (!this.isOwner) {
+      return;
+    }
+    this.products.update((items) => items.filter((item) => item.id !== productId));
+  }
+
+  onImageSelected(event: Event): void {
+    if (!this.isOwner) {
+      return;
+    }
+    const input = event.target as HTMLInputElement | null;
+    const file = input?.files?.[0];
+    if (!file) {
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = typeof reader.result === 'string' ? reader.result : '';
+      if (!result) {
+        return;
+      }
+      this.editDraft.set({ ...this.editDraft(), image: result });
+    };
+    reader.readAsDataURL(file);
+  }
 
   getProductsByCategory(category: ProductCategory): Product[] {
     return this.products().filter((product) => product.category === category);
