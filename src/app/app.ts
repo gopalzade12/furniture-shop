@@ -1,5 +1,4 @@
 import { Component, signal } from '@angular/core';
-import { environment } from '../environments/environment';
 
 type ProductCategory = 'Almirah' | 'Tables' | 'Beds' | 'Dressing' | 'Custom Product';
 
@@ -18,7 +17,6 @@ interface Product {
   styleUrl: './app.css'
 })
 export class App {
-  readonly isOwner = environment.isOwner || this.isOwnerPath();
   readonly categories: readonly ProductCategory[] = [
     'Almirah',
     'Tables',
@@ -28,15 +26,6 @@ export class App {
   ];
 
   readonly selectedCategory = signal<ProductCategory | null>(null);
-  readonly editingProductId = signal<number | null>(null);
-  readonly editDraft = signal<Omit<Product, 'id'>>({
-    name: '',
-    price: 0,
-    finalPrice: 0,
-    color: '',
-    image: '',
-    category: 'Almirah'
-  });
 
   readonly products = signal<Product[]>([
     {
@@ -59,7 +48,7 @@ export class App {
     },
     {
       id: 3,
-      name: '3-Door',
+      name: '3-Door (half color)',
       price: 13000,
       finalPrice: 12000,
       color: 'Godrej logo',
@@ -77,9 +66,9 @@ export class App {
     },
     {
       id: 5,
-      name: '2-Door',
+      name: '2-Door center placed',
       price: 8500,
-      finalPrice: 7500,
+      finalPrice: 8000,
       color: 'Godrej logo',
       image: 'images/almirah/2godrej.jpeg',
       category: 'Almirah'
@@ -115,7 +104,7 @@ export class App {
       id: 9,
       name: '3 Door Lining',
       price: 13000,
-      finalPrice: 12000,
+      finalPrice: 13000,
       color: 'mehroon',
       image: 'images/almirah/lining.jpeg',
       category: 'Almirah'
@@ -133,7 +122,7 @@ export class App {
       id: 11,
       name: '2 Door (2 mirror)',
       price: 12000,
-      finalPrice: 11000,
+      finalPrice: 12000,
       color: 'Pink',
       image: 'images/almirah/2.2red.jpeg',
       category: 'Almirah'
@@ -142,7 +131,7 @@ export class App {
       id: 12,
       name: 'Wooden',
       price: 8500,
-      finalPrice: 7500,
+      finalPrice: 8500,
       color: 'Black',
       image: 'images/almirah/wooden-black.jpeg',
       category: 'Almirah'
@@ -187,7 +176,7 @@ export class App {
       id: 26,
       name: 'Sliding (6*6) without mattress',
       price: 12500,
-      finalPrice: 11500,
+      finalPrice: 12000,
       color: 'Standard',
       image: 'images/beds/Sliding (6-6).jpeg',
       category: 'Beds'
@@ -196,7 +185,7 @@ export class App {
       id: 27,
       name: 'Box Bed (Fixed) long support',
       price: 10000,
-      finalPrice: 9000,
+      finalPrice: 9500,
       color: 'Standard',
       image: 'images/beds/Box bed.jpeg',
       category: 'Beds'
@@ -205,16 +194,16 @@ export class App {
       id: 28,
       name: 'Box Bed (Fixed) short support',
       price: 9000,
-      finalPrice: 8000,
+      finalPrice: 8500,
       color: 'Standard',
       image: 'images/beds/Box bed.jpeg',
       category: 'Beds'
     },
     {
       id: 29,
-      name: 'Sofa with Box',
+      name: 'Sofa with Box Sliding',
       price: 10000,
-      finalPrice: 9000,
+      finalPrice: 9500,
       color: 'Standard',
       image: 'images/beds/Sofa with box.jpeg',
       category: 'Beds'
@@ -239,7 +228,7 @@ export class App {
     },
     {
       id: 32,
-      name: 'Single plywood (3.5*6)',
+      name: 'Single plywood (3*6)',
       price: 3200,
       finalPrice: 3000,
       color: 'Standard',
@@ -259,7 +248,7 @@ export class App {
       id: 34,
       name: "Patti 3.5'",
       price: 4700,
-      finalPrice: 3700,
+      finalPrice: 3600,
       color: 'Standard',
       image: 'images/beds/Folding patti 3.jpeg',
       category: 'Beds'
@@ -286,7 +275,7 @@ export class App {
       id: 37,
       name: "Khatiya 3.5'",
       price: 1400,
-      finalPrice: 1200,
+      finalPrice: 1250,
       color: 'Standard',
       image: 'images/beds/khatiya.jpeg',
       category: 'Beds'
@@ -295,7 +284,7 @@ export class App {
       id: 38,
       name: "Khatiya 3'",
       price: 1300,
-      finalPrice: 1100,
+      finalPrice: 1150,
       color: 'Standard',
       image: 'images/beds/khatiya.jpeg',
       category: 'Beds'
@@ -304,7 +293,7 @@ export class App {
       id: 39,
       name: "Single plywood with legs folding (4')",
       price: 4000,
-      finalPrice: 3800,
+      finalPrice: 3700,
       color: 'Standard',
       image: 'images/beds/Plywood legs folding.jpeg',
       category: 'Beds'
@@ -313,7 +302,7 @@ export class App {
       id: 40,
       name: "Single plywood with legs folding (3.5')",
       price: 3700,
-      finalPrice: 3500,
+      finalPrice: 3600,
       color: 'Standard',
       image: 'images/beds/Plywood legs folding.jpeg',
       category: 'Beds'
@@ -331,7 +320,7 @@ export class App {
       id: 42,
       name: 'Closed computer table',
       price: 4800,
-      finalPrice: 4500,
+      finalPrice: 3500,
       color: 'Standard',
       image: 'images/tables/Computer (large).jpeg',
       category: 'Tables'
@@ -340,7 +329,7 @@ export class App {
       id: 43,
       name: '2-Drawer closed table',
       price: 5200,
-      finalPrice: 4800,
+      finalPrice: 4000,
       color: 'Standard',
       image: 'images/tables/Double drawer.jpeg',
       category: 'Tables'
@@ -349,7 +338,7 @@ export class App {
       id: 44,
       name: '1-Drawer open table',
       price: 3800,
-      finalPrice: 3500,
+      finalPrice: 2500,
       color: 'Standard',
       image: 'images/tables/Single drawer.jpeg',
       category: 'Tables'
@@ -358,7 +347,7 @@ export class App {
       id: 45,
       name: '1-Drawer closed table',
       price: 4500,
-      finalPrice: 4000,
+      finalPrice: 3000,
       color: 'Standard',
       image: 'images/tables/Computer small.jpeg',
       category: 'Tables'
@@ -367,16 +356,25 @@ export class App {
       id: 46,
       name: 'Counter table',
       price: 2800,
-      finalPrice: 2500,
+      finalPrice: 1500,
       color: 'Standard',
       image: 'images/tables/single counter.jpeg',
       category: 'Tables'
     },
     {
       id: 47,
-      name: 'Small Size t-table',
+      name: 'Small Size t-table(small)',
       price: 1000,
-      finalPrice: 800,
+      finalPrice: 700,
+      color: 'Standard',
+      image: 'images/tables/Small Table with middle angle.jpeg',
+      category: 'Tables'
+    },
+    {
+      id: 58,
+      name: 'Small Size t-table(big)',
+      price: 1000,
+      finalPrice: 900,
       color: 'Standard',
       image: 'images/tables/Small Table with middle angle.jpeg',
       category: 'Tables'
@@ -385,7 +383,7 @@ export class App {
       id: 48,
       name: 'Single Top Table (wooden colour)',
       price: 1300,
-      finalPrice: 1200,
+      finalPrice: 1300,
       color: 'Standard',
       image: 'images/tables/Without drawer (wooden).jpeg',
       category: 'Tables'
@@ -401,9 +399,9 @@ export class App {
     },
     {
       id: 50,
-      name: 'Big Rack (Black)',
+      name: 'Big Rack (Black) (in-progress)',
       price: 2100,
-      finalPrice: 2000,
+      finalPrice: 1500,
       color: 'Black',
       image: 'images/tables/Without drawer (wooden).jpeg',
       category: 'Custom Product'
@@ -412,7 +410,7 @@ export class App {
       id: 51,
       name: 'Big Rack (White)',
       price: 1600,
-      finalPrice: 1500,
+      finalPrice: 1700,
       color: 'White',
       image: 'images/tables/Without drawer (wooden).jpeg',
       category: 'Custom Product'
@@ -421,7 +419,7 @@ export class App {
       id: 52,
       name: 'Small Rack (White)',
       price: 1300,
-      finalPrice: 1200,
+      finalPrice: 1100,
       color: 'White',
       image: 'images/tables/Without drawer (wooden).jpeg',
       category: 'Custom Product'
@@ -475,10 +473,91 @@ export class App {
       id: 24,
       name: 'Small Single dressing',
       price: 1800,
-      finalPrice: 1500,
+      finalPrice: 1200,
       color: 'Black',
       image: 'images/dressing/Small Simple dressing.jpeg',
       category: 'Dressing'
+    },
+    {
+      id: 54,
+      name: 'Small Blue',
+      price: 3300,
+      finalPrice: 5500,
+      color: 'Blue',
+      image: 'images/almirah/small_blue.jpeg',
+      category: 'Almirah'
+    },
+    {
+      id: 55,
+      name: 'Small Black Old',
+      price: 3300,
+      finalPrice: 5000,
+      color: 'Black',
+      image: 'images/almirah/small_black_old.jpeg',
+      category: 'Almirah'
+    },
+    {
+      id: 59,
+      name: 'Double door Black corner',
+      price: 3300,
+      finalPrice: 5500,
+      color: 'Black',
+      image: 'images/almirah/small_black_old.jpeg',
+      category: 'Almirah'
+    },
+    {
+      id: 60,
+      name: 'Double door office',
+      price: 3300,
+      finalPrice: 6000,
+      color: 'Black',
+      image: 'images/almirah/small_black_old.jpeg',
+      category: 'Almirah'
+    },
+    {
+      id: 61,
+      name: 'First floor all',
+      price: 3300,
+      finalPrice: 6500,
+      color: 'Black',
+      image: 'images/almirah/2.red.jpeg',
+      category: 'Almirah'
+    },
+    {
+      id: 62,
+      name: 'First floor diamond logo center',
+      price: 3300,
+      finalPrice: 7500,
+      color: 'Black',
+      image: 'images/almirah/2godrej.jpeg',
+      category: 'Almirah'
+    },
+    {
+      id: 63,
+      name: 'First floor column side',
+      price: 3300,
+      finalPrice: 6000,
+      color: 'Black',
+      image: 'images/almirah/2godrej.jpeg',
+      category: 'Almirah'
+    },
+    {
+      id: 56,
+      name: '3-Drawer Table',
+      price: 5600,
+      finalPrice: 2000,
+      color: 'Standard',
+      image: 'images/tables/3-drawer.jpeg',
+      category: 'Tables'
+    },
+    {
+      id: 57,
+      name: '2 Door (2 mirror)',
+      price: 12000,
+      finalPrice: 8000,
+      color: 'Black',
+      image: 'images/almirah/2.2_black.jpeg',
+      category: 'Almirah'
     },
   ]);
 
@@ -490,106 +569,7 @@ export class App {
     this.selectedCategory.set(null);
   }
 
-  startEdit(product: Product): void {
-    if (!this.isOwner) {
-      return;
-    }
-    this.editingProductId.set(product.id);
-    this.editDraft.set({
-      name: product.name,
-      price: product.price,
-      finalPrice: product.finalPrice,
-      color: product.color,
-      image: product.image,
-      category: product.category
-    });
-  }
-
-  cancelEdit(): void {
-    this.editingProductId.set(null);
-  }
-
-  addProduct(): void {
-    if (!this.isOwner) {
-      return;
-    }
-    const items = this.products();
-    const nextId = items.length ? Math.max(...items.map((item) => item.id)) + 1 : 1;
-    const category = this.selectedCategory() ?? 'Almirah';
-    const newProduct: Product = {
-      id: nextId,
-      name: 'New Product',
-      price: 0,
-      finalPrice: 0,
-      color: 'Standard',
-      image: '',
-      category
-    };
-
-    this.products.update((list) => [newProduct, ...list]);
-    this.startEdit(newProduct);
-  }
-
-  saveEdit(productId: number): void {
-    if (!this.isOwner) {
-      return;
-    }
-    const draft = this.editDraft();
-    this.products.update((items) =>
-      items.map((item) =>
-        item.id === productId
-          ? {
-              ...item,
-              name: draft.name.trim() || item.name,
-              price: Number(draft.price) || 0,
-              finalPrice: Number(draft.finalPrice) || 0,
-              color: draft.color.trim() || item.color,
-              image: draft.image.trim() || item.image,
-              category: draft.category
-            }
-          : item
-      )
-    );
-    this.editingProductId.set(null);
-  }
-
-  removeProduct(productId: number): void {
-    if (!this.isOwner) {
-      return;
-    }
-    this.products.update((items) => items.filter((item) => item.id !== productId));
-  }
-
-  onImageSelected(event: Event): void {
-    if (!this.isOwner) {
-      return;
-    }
-    const input = event.target as HTMLInputElement | null;
-    const file = input?.files?.[0];
-    if (!file) {
-      return;
-    }
-    const reader = new FileReader();
-    reader.onload = () => {
-      const result = typeof reader.result === 'string' ? reader.result : '';
-      if (!result) {
-        return;
-      }
-      this.editDraft.set({ ...this.editDraft(), image: result });
-    };
-    reader.readAsDataURL(file);
-  }
-
   getProductsByCategory(category: ProductCategory): Product[] {
     return this.products().filter((product) => product.category === category);
   }
-
-  private isOwnerPath(): boolean {
-    if (typeof window === 'undefined') {
-      return false;
-    }
-    const segments = window.location.pathname.split('/').filter(Boolean);
-    return segments.includes('2166') || segments.includes('owner');
-  }
 }
-

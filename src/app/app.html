@@ -77,15 +77,6 @@
             <span class="category-total">
               {{ getProductsByCategory(selectedCategory()!).length }} items
             </span>
-            @if (isOwner) {
-              <button class="icon-button add" type="button" (click)="addProduct()" aria-label="Add product">
-                <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true">
-                  <path d="M12 5v14"></path>
-                  <path d="M5 12h14"></path>
-                </svg>
-                <span>New</span>
-              </button>
-            }
           </div>
         </div>
       </div>
@@ -99,106 +90,9 @@
               <img [src]="product.image" [alt]="product.name" />
               <div class="product-top">
                 <h3>{{ product.name }}</h3>
-                @if (isOwner) {
-                  <div class="product-actions">
-                    <button
-                      class="icon-button"
-                      type="button"
-                      (click)="startEdit(product)"
-                      aria-label="Edit product"
-                    >
-                      <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true">
-                        <path d="M4 20h4l10-10-4-4L4 16v4z"></path>
-                        <path d="M14 6l4 4"></path>
-                      </svg>
-                    </button>
-                    <button
-                      class="icon-button danger"
-                      type="button"
-                      (click)="removeProduct(product.id)"
-                      aria-label="Remove product"
-                    >
-                      <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true">
-                        <path d="M6 7h12"></path>
-                        <path d="M9 7V5h6v2"></path>
-                        <path d="M8 7l1 12h6l1-12"></path>
-                      </svg>
-                    </button>
-                  </div>
-                }
               </div>
-
-              @if (isOwner && editingProductId() === product.id) {
-                <div class="edit-form">
-                  <label>
-                    Name
-                    <input
-                      type="text"
-                      [value]="editDraft().name"
-                      (input)="editDraft.set({ ...editDraft(), name: ($any($event.target).value) })"
-                    />
-                  </label>
-                  <label>
-                    Color
-                    <input
-                      type="text"
-                      [value]="editDraft().color"
-                      (input)="editDraft.set({ ...editDraft(), color: ($any($event.target).value) })"
-                    />
-                  </label>
-                  <label>
-                    Price
-                    <input
-                      type="number"
-                      min="0"
-                      [value]="editDraft().price"
-                      (input)="editDraft.set({ ...editDraft(), price: ($any($event.target).valueAsNumber) })"
-                    />
-                  </label>
-                  <label>
-                    Final Price
-                    <input
-                      type="number"
-                      min="0"
-                      [value]="editDraft().finalPrice"
-                      (input)="editDraft.set({ ...editDraft(), finalPrice: ($any($event.target).valueAsNumber) })"
-                    />
-                  </label>
-                  <label>
-                    Image URL
-                    <input
-                      type="text"
-                      [value]="editDraft().image"
-                      (input)="editDraft.set({ ...editDraft(), image: ($any($event.target).value) })"
-                    />
-                  </label>
-                  <label>
-                    Upload Image
-                    <input type="file" accept="image/*" (change)="onImageSelected($event)" />
-                  </label>
-                  <label>
-                    Category
-                    <select
-                      [value]="editDraft().category"
-                      (change)="editDraft.set({ ...editDraft(), category: ($any($event.target).value) })"
-                    >
-                      @for (category of categories; track category) {
-                        <option [value]="category">{{ category }}</option>
-                      }
-                    </select>
-                  </label>
-                  <div class="edit-actions">
-                    <button type="button" class="save-button" (click)="saveEdit(product.id)">Save</button>
-                    <button type="button" class="cancel-button" (click)="cancelEdit()">Cancel</button>
-                  </div>
-                </div>
-              } @else {
-                <p><strong>Color:</strong> {{ product.color }}</p>
-                <p><strong>Price:</strong> &#8377;{{ product.price }}</p>
-                @if (isOwner) {
-                  <p><strong>Final Price:</strong> &#8377;{{ product.finalPrice }}</p>
-                }
-              }
+              <p><strong>Color:</strong> {{ product.color }}</p>
+              <p><strong>Price:</strong> &#8377;{{ product.finalPrice }}</p>
             </article>
           }
         </div>
